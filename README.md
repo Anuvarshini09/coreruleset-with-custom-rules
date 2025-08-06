@@ -12,6 +12,16 @@
 
 The OWASP CRS is a set of generic attack detection rules for use with ModSecurity or compatible web application firewalls. The CRS aims to protect web applications from a wide range of attacks, including the OWASP Top Ten, with a minimum of false alerts.
 
+# 🔧 Custom Rule Enhancements to OWASP CRS
+This fork of the OWASP Core Rule Set (CRS) includes custom rules developed as part of a research project titled “An Empirical Evaluation of ModSecurity with Enhanced Rule Detection.
+
+The goal of this project was to assess the detection capability of ModSecurity with OWASP CRS in its strict configuration using Paranoia Level 4 (PL-4) and a threshold value of 5 with the Damn Vulnerable Web Application (DVWA) as the test environment. The setup was initially evaluated using a WAF bypass testing tool that sent direct, non-encoded payloads, where the CRS demonstrated a high true positive rate, suggesting good detection capability for straightforward attacks.
+
+However, when tested using GoTestWAF, which introduced a wider variety of encoded, obfuscated, and structured payloads, the true positive rate dropped to around 60%, leading to further investigation of bypasses and weak spots. The analysis and results of these evaluations are documented in the OWASP_CRS_PROJECT folder.
+
+To address the identified gaps, a set of custom rules was created and added to this fork. These rules aim to strengthen the detection of payloads that managed to bypass the default CRS. After the inclusion of these rules, the overall detection rate improved significantly to 97.5%, demonstrating the effectiveness of the enhancements. All such additions are integrated into the rules/ directory within this repository.
+
+
 ## CRS Resources
 
 Please see the [OWASP CRS page](https://coreruleset.org/) to get introduced to CRS and view resources on installation, configuration, and working with CRS.
